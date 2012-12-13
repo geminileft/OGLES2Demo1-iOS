@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+@private
+    UIWindow* mWindow;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
