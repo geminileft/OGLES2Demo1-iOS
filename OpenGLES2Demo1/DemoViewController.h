@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
-@interface DemoViewController : GLKViewController <GLKViewControllerDelegate, GLKViewDelegate>
+@interface DemoViewController : GLKViewController <GLKViewDelegate>
 
 @end

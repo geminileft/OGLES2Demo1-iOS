@@ -20,22 +20,39 @@
 - (id) init {
     self = [super init];
     if (self) {
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
         EAGLContext* context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
         [EAGLContext setCurrentContext:context];
         GLKView* glView = [[GLKView alloc] initWithFrame:[[UIScreen mainScreen] bounds] context:context];
         glView.drawableStencilFormat = GLKViewDrawableStencilFormat8;
-        self.delegate = self;
         glView.delegate = self;
         self.view = glView;
         [context release];
         [glView release];
         [self initGL];
+        self.preferredFramesPerSecond = 60;
     }
     return self;
 }
 
-- (void)glkViewControllerUpdate:(GLKViewController *)controller {
-    //NSLog(@"Not sure what to do here");
+-(void) initGL {
+    NSString* vSource;
+    NSString* fSource;
+    vSource = [GraphicsUtils readShaderFile:@"basic.vsh"];
+    fSource = [GraphicsUtils readShaderFile:@"basic.fsh"];
+    unsigned progId = [GraphicsUtils createProgramVertexSource:vSource fragmentSource:fSource];
+    [GraphicsUtils activateProgram:progId];
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClearStencil(0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    unsigned aVertices = glGetAttribLocation([GraphicsUtils currentProgramId], "aVertices");
+    //unsigned aTextureCoords = glGetAttribLocation([GraphicsUtils currentProgramId], "aTextureCoords");
+    unsigned aColor = glGetAttribLocation([GraphicsUtils currentProgramId], "aColor");
+    glEnableVertexAttribArray(aVertices);
+    //glEnableVertexAttribArray(aTextureCoords);
+    glEnableVertexAttribArray(aColor);
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    glViewport(0, 0, bounds.size.width, bounds.size.height);
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
@@ -119,23 +136,4 @@
     }
 }
 
--(void) initGL {
-    NSString* vSource;
-    NSString* fSource;
-    vSource = [GraphicsUtils readShaderFile:@"basic.vsh"];
-    fSource = [GraphicsUtils readShaderFile:@"basic.fsh"];
-    unsigned progId = [GraphicsUtils createProgramVertexSource:vSource fragmentSource:fSource];
-    [GraphicsUtils activateProgram:progId];
-    glClearColor(0.0, 0.0, 0.0, 1.0);
-    glClearStencil(0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-    unsigned aVertices = glGetAttribLocation([GraphicsUtils currentProgramId], "aVertices");
-    //unsigned aTextureCoords = glGetAttribLocation([GraphicsUtils currentProgramId], "aTextureCoords");
-    unsigned aColor = glGetAttribLocation([GraphicsUtils currentProgramId], "aColor");
-    glEnableVertexAttribArray(aVertices);
-    //glEnableVertexAttribArray(aTextureCoords);
-    glEnableVertexAttribArray(aColor);
-    CGRect bounds = [[UIScreen mainScreen] bounds];
-    glViewport(0, 0, bounds.size.width, bounds.size.height);
-}
 @end
