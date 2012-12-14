@@ -27,6 +27,7 @@
     DemoViewController* glvc = [[DemoViewController alloc] init];
     self.window.rootViewController = glvc;
     [self.window makeKeyAndVisible];
+    [glvc release];
     return YES;
 }
 

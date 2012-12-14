@@ -19,10 +19,10 @@
 		D756E77A1679BD0F00DF0C90 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D756E7791679BD0F00DF0C90 /* GLKit.framework */; };
 		D756E77D1679BD1B00DF0C90 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D756E77B1679BD1B00DF0C90 /* OpenGLES.framework */; };
 		D756E77E1679BD1B00DF0C90 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D756E77C1679BD1B00DF0C90 /* QuartzCore.framework */; };
-		D756E7811679BD4E00DF0C90 /* basic.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D756E77F1679BD4E00DF0C90 /* basic.fsh */; };
-		D756E7821679BD4E00DF0C90 /* basic.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D756E7801679BD4E00DF0C90 /* basic.vsh */; };
 		D756E7871679BD9700DF0C90 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D756E7841679BD9700DF0C90 /* DemoViewController.m */; };
 		D756E7881679BD9700DF0C90 /* GraphicsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D756E7861679BD9700DF0C90 /* GraphicsUtils.m */; };
+		F70F5E65167ABC8100EE1D9A /* basic.fsh in Resources */ = {isa = PBXBuildFile; fileRef = F70F5E63167ABC8100EE1D9A /* basic.fsh */; };
+		F70F5E66167ABC8100EE1D9A /* basic.vsh in Resources */ = {isa = PBXBuildFile; fileRef = F70F5E64167ABC8100EE1D9A /* basic.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,12 +42,12 @@
 		D756E7791679BD0F00DF0C90 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		D756E77B1679BD1B00DF0C90 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		D756E77C1679BD1B00DF0C90 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		D756E77F1679BD4E00DF0C90 /* basic.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = basic.fsh; sourceTree = "<group>"; };
-		D756E7801679BD4E00DF0C90 /* basic.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = basic.vsh; sourceTree = "<group>"; };
 		D756E7831679BD9700DF0C90 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		D756E7841679BD9700DF0C90 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		D756E7851679BD9700DF0C90 /* GraphicsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsUtils.h; sourceTree = "<group>"; };
 		D756E7861679BD9700DF0C90 /* GraphicsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphicsUtils.m; sourceTree = "<group>"; };
+		F70F5E63167ABC8100EE1D9A /* basic.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = basic.fsh; sourceTree = "<group>"; };
+		F70F5E64167ABC8100EE1D9A /* basic.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = basic.vsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +114,8 @@
 		D756E7631679BCE400DF0C90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D756E77F1679BD4E00DF0C90 /* basic.fsh */,
-				D756E7801679BD4E00DF0C90 /* basic.vsh */,
+				F70F5E63167ABC8100EE1D9A /* basic.fsh */,
+				F70F5E64167ABC8100EE1D9A /* basic.vsh */,
 				D756E7641679BCE400DF0C90 /* OpenGLES2Demo1-Info.plist */,
 				D756E7651679BCE400DF0C90 /* InfoPlist.strings */,
 				D756E7681679BCE400DF0C90 /* main.m */,
@@ -178,8 +178,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D756E7811679BD4E00DF0C90 /* basic.fsh in Resources */,
-				D756E7821679BD4E00DF0C90 /* basic.vsh in Resources */,
+				F70F5E65167ABC8100EE1D9A /* basic.fsh in Resources */,
+				F70F5E66167ABC8100EE1D9A /* basic.vsh in Resources */,
 				D756E7671679BCE400DF0C90 /* InfoPlist.strings in Resources */,
 				D756E76F1679BCE400DF0C90 /* Default.png in Resources */,
 				D756E7711679BCE400DF0C90 /* Default@2x.png in Resources */,
@@ -308,6 +308,7 @@
 				D756E7781679BCE400DF0C90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

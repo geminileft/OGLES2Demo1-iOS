@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
-@interface DemoViewController : GLKViewController <GLKViewDelegate>
+@interface DemoViewController : GLKViewController <GLKViewDelegate> {
+@private
+    uint maVertices;
+    uint maColor;
+    float mWidth;
+    float mHeight;
+}
 
 @end
