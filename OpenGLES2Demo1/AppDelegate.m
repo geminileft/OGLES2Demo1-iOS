@@ -11,8 +11,6 @@
 
 @implementation AppDelegate
 
-@synthesize window = mWindow;
-
 - (void)dealloc
 {
     [mWindow release];
@@ -21,12 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    mWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
     DemoViewController* glvc = [[DemoViewController alloc] init];
-    self.window.rootViewController = glvc;
-    [self.window makeKeyAndVisible];
+    mWindow.rootViewController = glvc;
+    [mWindow makeKeyAndVisible];
     [glvc release];
     return YES;
 }

@@ -119,7 +119,6 @@
      };
      glVertexAttribPointer(maVertices, 2, GL_FLOAT, false, 0, &verticesTriangle[0]);
      glDrawArrays(GL_TRIANGLES, 0, 6);
-     NSLog(@"draw frame");
 }
 
 @end

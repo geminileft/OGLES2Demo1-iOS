@@ -13,6 +13,4 @@
     UIWindow* mWindow;
 }
 
-@property (strong, nonatomic) UIWindow *window;
-
 @end
