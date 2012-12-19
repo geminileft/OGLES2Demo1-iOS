@@ -5,6 +5,14 @@ static unsigned mCurrentProgram;
 
 @implementation GraphicsUtils
 
++ (NSString*) readShaderFile:(NSString*) filename {
+    NSBundle* bundle = [NSBundle mainBundle];
+    NSString* resourcePath = [bundle resourcePath];
+    NSString* fullpath = [resourcePath stringByAppendingPathComponent:filename];
+    NSString* contents = [NSString stringWithContentsOfFile:fullpath encoding:NSUTF8StringEncoding error:nil];
+    return contents;
+}
+
 + (unsigned) createProgramVertexSource:(NSString*) vSource fragmentSource:(NSString*) fSource {
     unsigned programId = glCreateProgram();
     NSAssert1(programId != 0, @"Failed creating program, %@", @"GraphicsUtils:createProgramVertexSource");
@@ -32,14 +40,6 @@ static unsigned mCurrentProgram;
     glShaderSource(shader, 1, &str, NULL);
     glCompileShader(shader);
     return shader;
-}
-
-+ (NSString*) readShaderFile:(NSString*) filename {
-    NSBundle* bundle = [NSBundle mainBundle];
-    NSString* resourcePath = [bundle resourcePath];
-    NSString* fullpath = [resourcePath stringByAppendingPathComponent:filename];
-    NSString* contents = [NSString stringWithContentsOfFile:fullpath encoding:NSUTF8StringEncoding error:nil];
-    return contents;
 }
 
 + (void) activateProgram:(unsigned) programId {
